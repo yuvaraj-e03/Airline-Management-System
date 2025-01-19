@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Payment</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            function validateform(){
+                var cvv=document.paymentpage.cvv.value;
+                var num=document.paymentpage.num.value;
+                if(num.length>16||num.length<12){
+                    alert("Card number must be between 12 and 16 digits only");
+                    return false;
+                }
+                if(cvv.length!=3){
+                    alert("CVV number must be 3 digits only");
+                    return false;
+                }
+}
+            
+        </script>
+    </head>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 10px;
+        padding: 10px;
+    }
+.navbar {
+    background-color: #333;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-brand,
+.navbar-nav > li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 20px; /* Adjust as needed */
+}
+
+.navbar-nav li a {
+    color: #fff;
+    margin-left: 15px;
+}
+
+.navbar-nav li.active a {
+    color: #ff0; 
+    margin-left: 20px;
+}
+
+.navbar-right {
+    float: right;
+    margin-right: 20px; /* Adjust as needed */
+}
+
+
+    
+    .background-wrapper {
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Header */
+    header {
+        text-align: center;
+        color: #fff;
+    }
+    
+    /* Payment panel */
+    .panel-transparent {
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .panel-heading {
+        background-color: transparent;
+        border-bottom: 1px solid #ddd;
+        align-items: center;
+    }
+    
+    .panel-body {
+        padding: 60px;
+    }
+    
+    /* Payment form */
+    .trans-input-area {
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    
+    /* Button */
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    
+    .btn-block {
+        display: block;
+        width: 50%;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .background-wrapper {
+            height: auto;
+            min-height: 100vh;
+        }
+    }
+    
+    </style>
+    
+    <body>
+        <nav class="navbar navbar-inverse" style="border-radius:0px !important; margin: 0px;border: 0px">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html" id="ry-airlines-link">RY-Airlines</a>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="book.html">Booking</a></li>
+                    <li><a href="myflights.php">My Flights</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+                
+
+                <div class="background-wrapper" style="background-image: url(pay\ pic.jpg);">
+                
+                
+
+                
+                <div class="container-fluid">
+                    <header>
+                        <h2>Payement</h2>
+                        <hr>
+                    </header>
+                    
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="panel-group">
+                            <div class="panel panel-default panel-transparent">
+                                <div class="panel-heading">
+                                    <legend style="text-align: center;">Payment Information</legend>
+                                </div>
+                                <div class="panel-body">
+                                    <form name="paymentpage" action="process_payment.php" method="POST" onsubmit="return validateform()" class="form-horizontal"  style="padding: 0 5rem 0 5rem; width: 100%">
+                                        
+                                            <div class="form-group">
+                                                <label for="name">Card Number</label>
+                                                <input type="0000-0000" class="form-control trans-input-area" placeholder="Card Number" name="num" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <div style="float: left; width: 46%">
+                                                <label for="Country">Expiry</label>
+                                                <input type="month" class="form-control trans-input-area" placeholder="month/year" name="expiry" id="expiry" required>
+                                            </div>
+                                            <div style="float: right; width: 46%">
+                                                <label for="Country">CVV</label>
+                                                <input type="number" class="form-control trans-input-area" placeholder="CVV" name="cvv" id="cvv" required>
+                                            </div>
+                                            </div>
+                                            <input type="hidden" name="payment_status" value="completed">
+                                            <br>
+                                                <button class="btn btn-primary btn-block trans-input-area" type="submit">Click to Pay</button>
+                                            </div>
+                                        </form>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </body>
+</html>
